@@ -1,0 +1,28 @@
+# Dataset (download separately via torchvision)
+dynamic_topology_net/data/
+
+# Model checkpoints
+*.pt
+*.pth
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# The paper PDF (copyright — obtain from arXiv:2602.23405)
+Dynamic-Topologies-Research-Paper.pdf
+
+# Claude Code internals
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/

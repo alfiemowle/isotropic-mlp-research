@@ -1,0 +1,83 @@
+Device: cpu
+Loading CIFAR-10...
+C:\Users\Alfie\AppData\Local\Programs\Python\Python311\Lib\site-packages\torchvision\datasets\cifar.py:83: VisibleDeprecationWarning: dtype(): align should be passed as Python or NumPy boolean but got `align=0`. Did you mean to pass a tuple to create a subarray type? (Deprecated NumPy 2.4)
+  entry = pickle.load(f, encoding="latin1")
+
+=======================================================
+Model: Iso-1L
+=======================================================
+  [Iso-1L] Epoch  1/24  acc=0.372  cond=4.0  entropy=0.973  top3=0.241
+  [Iso-1L] Epoch  2/24  acc=0.402  cond=4.7  entropy=0.968  top3=0.252
+  [Iso-1L] Epoch  3/24  acc=0.400  cond=5.0  entropy=0.964  top3=0.254
+  [Iso-1L] Epoch  4/24  acc=0.400  cond=5.1  entropy=0.961  top3=0.257
+  [Iso-1L] Epoch  5/24  acc=0.409  cond=5.4  entropy=0.960  top3=0.256
+  [Iso-1L] Epoch  6/24  acc=0.401  cond=5.7  entropy=0.958  top3=0.256
+  [Iso-1L] Epoch  7/24  acc=0.409  cond=6.0  entropy=0.957  top3=0.254
+  [Iso-1L] Epoch  8/24  acc=0.392  cond=6.2  entropy=0.957  top3=0.252
+  [Iso-1L] Epoch  9/24  acc=0.404  cond=6.4  entropy=0.956  top3=0.252
+  [Iso-1L] Epoch 10/24  acc=0.397  cond=6.6  entropy=0.956  top3=0.251
+  [Iso-1L] Epoch 11/24  acc=0.410  cond=6.9  entropy=0.955  top3=0.249
+  [Iso-1L] Epoch 12/24  acc=0.399  cond=7.1  entropy=0.955  top3=0.248
+  [Iso-1L] Epoch 13/24  acc=0.403  cond=7.3  entropy=0.955  top3=0.246
+  [Iso-1L] Epoch 14/24  acc=0.410  cond=7.4  entropy=0.955  top3=0.245
+  [Iso-1L] Epoch 15/24  acc=0.402  cond=7.6  entropy=0.955  top3=0.244
+  [Iso-1L] Epoch 16/24  acc=0.406  cond=7.7  entropy=0.955  top3=0.243
+  [Iso-1L] Epoch 17/24  acc=0.400  cond=7.8  entropy=0.955  top3=0.242
+  [Iso-1L] Epoch 18/24  acc=0.410  cond=8.0  entropy=0.955  top3=0.241
+  [Iso-1L] Epoch 19/24  acc=0.400  cond=8.1  entropy=0.956  top3=0.240
+  [Iso-1L] Epoch 20/24  acc=0.406  cond=8.2  entropy=0.956  top3=0.239
+  [Iso-1L] Epoch 21/24  acc=0.401  cond=8.3  entropy=0.956  top3=0.238
+  [Iso-1L] Epoch 22/24  acc=0.412  cond=8.4  entropy=0.956  top3=0.237
+  [Iso-1L] Epoch 23/24  acc=0.414  cond=8.4  entropy=0.957  top3=0.236
+  [Iso-1L] Epoch 24/24  acc=0.405  cond=8.4  entropy=0.957  top3=0.235
+
+=======================================================
+Model: Iso-2L
+=======================================================
+  [Iso-2L] Epoch  1/24  acc=0.362  cond=5.4  entropy=0.950  top3=0.285
+  [Iso-2L] Epoch  2/24  acc=0.389  cond=6.6  entropy=0.941  top3=0.291
+  [Iso-2L] Epoch  3/24  acc=0.404  cond=7.1  entropy=0.935  top3=0.292
+  [Iso-2L] Epoch  4/24  acc=0.405  cond=7.5  entropy=0.934  top3=0.287
+  [Iso-2L] Epoch  5/24  acc=0.410  cond=7.8  entropy=0.935  top3=0.279
+  [Iso-2L] Epoch  6/24  acc=0.406  cond=8.1  entropy=0.937  top3=0.272
+  [Iso-2L] Epoch  7/24  acc=0.417  cond=8.5  entropy=0.940  top3=0.266
+  [Iso-2L] Epoch  8/24  acc=0.422  cond=8.9  entropy=0.943  top3=0.260
+  [Iso-2L] Epoch  9/24  acc=0.418  cond=9.2  entropy=0.946  top3=0.255
+  [Iso-2L] Epoch 10/24  acc=0.426  cond=9.3  entropy=0.949  top3=0.250
+  [Iso-2L] Epoch 11/24  acc=0.427  cond=9.6  entropy=0.952  top3=0.246
+  [Iso-2L] Epoch 12/24  acc=0.426  cond=9.6  entropy=0.955  top3=0.242
+  [Iso-2L] Epoch 13/24  acc=0.434  cond=9.7  entropy=0.957  top3=0.238
+  [Iso-2L] Epoch 14/24  acc=0.439  cond=9.7  entropy=0.959  top3=0.235
+  [Iso-2L] Epoch 15/24  acc=0.435  cond=9.5  entropy=0.961  top3=0.233
+  [Iso-2L] Epoch 16/24  acc=0.432  cond=9.2  entropy=0.963  top3=0.230
+  [Iso-2L] Epoch 17/24  acc=0.436  cond=8.6  entropy=0.965  top3=0.227
+  [Iso-2L] Epoch 18/24  acc=0.436  cond=8.1  entropy=0.967  top3=0.224
+  [Iso-2L] Epoch 19/24  acc=0.438  cond=7.5  entropy=0.969  top3=0.222
+  [Iso-2L] Epoch 20/24  acc=0.438  cond=7.0  entropy=0.971  top3=0.220
+  [Iso-2L] Epoch 21/24  acc=0.438  cond=6.5  entropy=0.972  top3=0.218
+  [Iso-2L] Epoch 22/24  acc=0.434  cond=6.0  entropy=0.973  top3=0.215
+  [Iso-2L] Epoch 23/24  acc=0.440  cond=5.7  entropy=0.975  top3=0.213
+  [Iso-2L] Epoch 24/24  acc=0.438  cond=5.4  entropy=0.976  top3=0.212
+
+=======================================================
+PHASE TRANSITION ANALYSIS
+=======================================================
+
+Iso-1L:
+  Init entropy:  0.9997  (1=uniform, 0=one-direction)
+  Final entropy: 0.9574
+  Init cond:     1.2
+  Final cond:    8.4
+  Largest entropy drop: epoch 1  (delta=-0.0269, acc=0.372)
+  Top-3 SVs account for 23.5% of total at end
+
+Iso-2L:
+  Init entropy:  0.9997  (1=uniform, 0=one-direction)
+  Final entropy: 0.9757
+  Init cond:     1.2
+  Final cond:    5.4
+  Largest entropy drop: epoch 1  (delta=-0.0495, acc=0.362)
+  Top-3 SVs account for 21.2% of total at end
+
+Plot saved to results/test_S/sv_evolution.png
+Results saved to results/test_S/results.md
