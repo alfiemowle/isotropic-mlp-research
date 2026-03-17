@@ -8,6 +8,7 @@
 
 | Test | Topic | Status | Key Number |
 |---|---|---|---|
+| AS | Full integrated pipeline (best config) | COMPLETE | Dynamic 51.09% vs static 49.47%/51.00%; all overfit at constant LR |
 | AN | Interleaved training protocol | COMPLETE | Stale Adam harmless; reset Adam hurts −0.0044 |
 | AP | Chained SVD pruning (multi-layer) | COMPLETE | 2L pruning +1.4pp (improves accuracy!) |
 | AQ | IsoGELU LR sweep | COMPLETE | H2 confirmed: gap 12pp→1pp at low LR |
@@ -809,6 +810,36 @@ Output diff immediately after growth: **Iso=0.000243  LN+tanh=0.538** (2200× la
 **Finding**: Both models recover strongly in 1 epoch (Iso: 93% recovery, LN+tanh: 92%). Iso recovers closer to baseline by epoch 2 (-0.24% vs -1.77% for LN+tanh). LN+tanh settles at -1.17% from base after 5 epochs — good but not quite matching the Iso recovery quality. The W2-norm pruning criterion for LN+tanh (from AJ) works adequately.
 
 **Overall AM verdict**: LN+tanh approximate topology is viable in practice for both growth and pruning with 1-2 fine-tune epochs. The theoretical impurity (0.538 output diff on growth) doesn't block practical use — it just means you must fine-tune after every architecture change, whereas Iso growth requires zero fine-tuning.
+
+---
+
+### Test AS -- Full Integrated Pipeline (COMPLETE)
+
+**Question**: Does combining every positive finding (best architecture from AR, safe interleaved protocol from AN, low LR from AQ, 100 epochs from AI, composite criterion from U2/Z) into a single run beat the static baseline?
+
+**Setup**: Iso-first-4L, width 160→128, 100 epochs, lr=0.001, diag every 5ep, prune 4 neurons at ep20/30/.../90.
+
+| Condition | ep10 | Peak | Peak@ep | ep30 | ep100 |
+|---|---|---|---|---|---|
+| A-Static-Iso-first w=128 | 54.33% | **54.39%** | ep14 | 51.50% | 49.47% |
+| B-Static-LN+GELU-4L w=128 | 53.37% | **54.13%** | ep6 | 51.36% | **51.00%** |
+| C-Dynamic Iso-first 160->128 | 54.38% | **54.79%** | ep14 | 43.04% | **51.09%** |
+
+**Key comparisons at ep100**: C vs A: +1.62pp, C vs B: +0.09pp, A vs B: −1.53pp
+
+**Prune log**: 4 neurons pruned at ep20,30,40,50,60,70,80,90. Width: 160→156→...→128.
+
+**Findings**:
+
+1. **Constant LR overfitting dominates everything.** All three models peak by ep6-14 then decay 3-5pp by ep100. The entire long-training comparison is an overfitting regime, not a capacity regime. This directly validates Audit Issue #7.
+
+2. **Pruning schedule is too aggressive.** Each prune event causes a ~10pp accuracy drop (ep10: 54.4%→ep20-post-prune: 42.2%). Recovery takes the full 10 epochs between prune events. The model spends ep20-90 perpetually recovering rather than learning. Pruning every 10 epochs is too frequent — or should only start after convergence.
+
+3. **Dynamic model (C) recovers to 51.09% by ep100**, narrowly beating static LN+GELU (51.00%) by 0.09pp and beating static Iso-first (49.47%) by 1.62pp. The ranking direction is correct but differences are small and within single-seed noise.
+
+4. **The true peak performance is pre-pruning**: C reaches 54.79% at ep14, before any pruning. This is essentially just the w=160 model at early training — not a product of the interleaved protocol.
+
+5. **Critical implication**: The full paper protocol (interleaved diagonalise + prune during training) at constant LR is not competitive with simply taking the peak accuracy of the static model at ep14. A cosine LR schedule that stabilises the model before pruning begins is likely essential for the protocol to work as intended.
 
 ---
 
