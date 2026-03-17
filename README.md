@@ -15,7 +15,7 @@ An empirical investigation of **isotropic dynamic networks** based on:
 - Isotropic tanh consistently outperforms standard tanh: **+14–16% accuracy** on CIFAR-10, scaling across widths, depths, and datasets
 - Reparameterisation and neurogenesis invariance are exact (to float32)
 - Singular value criterion predicts pruning impact well (r = 0.815) <- ***George Note: This could be very interesting***
-- 50% pruning is stable with near-zero accuracy loss; 91% recovery after just 1 fine-tune epoch <- ***I'll talk through this***
+- 50% pruning is stable with near-zero accuracy loss; 91% recovery after just 1 fine-tune epoch <- ***I'll talk through this*** TensorFloat16
 
 
 **What we found beyond the paper**
