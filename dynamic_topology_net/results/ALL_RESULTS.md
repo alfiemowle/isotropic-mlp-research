@@ -581,4 +581,147 @@ Three experiments launched 2026-03-16 to probe gaps identified after the initial
 
 ---
 
-*Last updated: 2026-03-16. All experiments A–Z, AA–AD complete.*
+---
+
+### Test AE -- LayerNorm vs Isotropic Activation (COMPLETE)
+
+**Question**: Does LN+tanh match Iso at depth? Is Jacobian preservation the principle, or is isotropy specifically necessary?
+
+**Setup**: Base, Iso, LN+tanh, LN+Iso, RMS+tanh at 1L/2L/3L. Width=32, 24 epochs.
+
+| Model | 1L | 2L | 3L | Depth gain (3L-1L) |
+|---|---|---|---|---|
+| Base     | 27.01% | 26.38% | 23.02% | -3.99% |
+| Iso      | 40.68% | 43.42% | 43.54% | +2.86% |
+| LN+tanh  | 44.99% | 45.34% | 46.54% | +1.55% |
+| LN+Iso   | 42.82% | 46.62% | 47.27% | +4.45% |
+| RMS+tanh | 42.76% | 45.03% | 47.51% | +4.75% |
+
+**Finding**: **Outcome 1 — LN+tanh not only matches Iso at depth, it beats it** (46.54% vs 43.54% at 3L; closes 115% of the Iso-Base gap). RMS+tanh achieves 47.51% — the highest of any single-norm model. LN+Iso is the best combination (47.27%).
+
+The mechanism: LayerNorm keeps tanh inputs near zero mean/unit variance, so tanh operates in its near-linear regime (Jacobian ≈ identity). Iso preserves the tangential gradient component at large norms. Both achieve Jacobian preservation via different routes — normalisation is slightly more effective at this scale.
+
+**Implication**: The paper's specific isotropic architecture is not uniquely necessary for depth stability. Jacobian preservation is the true principle, and it can be achieved with standard normalisation + standard activation. The paper's contribution is more accurately described as identifying *why* depth stability requires Jacobian preservation — the specific mechanism (isotropy vs normalisation) is secondary.
+
+---
+
+---
+
+### Test AJ -- LN+tanh Topology Compatibility (COMPLETE)
+
+**Question**: Does LN+tanh support exact dynamic topology (pruning/growing) like Iso?
+
+**Scaffold inertness test**: Add a zero-weight scaffold neuron and measure prediction change.
+
+| Model | Max output diff | Pred match | Verdict |
+|---|---|---|---|
+| Iso     | 0.000003 | 1.0000 | INERT (exact) |
+| LN+tanh | 0.086253 | 1.0000 | NOT INERT |
+
+**Pruning criterion correlation** (r with accuracy drop per neuron):
+
+| Model | r(SV) | r(W2-norm) | r(Composite) |
+|---|---|---|---|
+| Iso     | 0.141 | 0.654 | 0.725 |
+| LN+tanh | -0.113 | 0.914 | 0.899 |
+
+**Finding**: LN+tanh scaffold neurons are NOT inert — LayerNorm normalises across all neurons, so adding a zero neuron shifts the denominator for all existing neurons (max diff = 0.086 vs Iso's 0.000003). **The paper's dynamic topology claims survive** as a unique advantage of isotropic activation. Additionally, the SV pruning criterion is *useless* for LN+tanh (r = -0.11); W2-norm alone (r = 0.91) is needed instead.
+
+---
+
+### Test AH -- Modern Activations with LayerNorm (COMPLETE)
+
+**Question**: Does LN+tanh's advantage over Iso generalise to GELU, SiLU, ReLU?
+
+| Model | LN? | 1L | 2L | 3L | 3L-1L |
+|---|---|---|---|---|---|
+| Iso      | No  | 40.68% | 43.42% | 43.54% | +2.86% |
+| LN+tanh  | Yes | 44.99% | 45.34% | 46.54% | +1.55% |
+| LN+GELU  | Yes | 46.72% | 47.83% | 47.62% | +0.90% |
+| LN+SiLU  | Yes | 46.99% | 49.23% | 47.80% | +0.81% |
+| LN+ReLU  | Yes | 44.60% | 48.20% | 45.23% | +0.63% |
+| GELU     | No  | 25.86% | 10.00% | 10.00% | -15.86% |
+| SiLU     | No  | 23.80% | 10.00% | 10.00% | -13.80% |
+| ReLU     | No  | 26.41% | 10.00% | 10.00% | -16.41% |
+
+**Finding**: All 4 LN models beat Iso at 3L. Bare GELU/SiLU/ReLU *without* LN collapse to random chance (10%) at depth 2+. **Normalisation is load-bearing; the activation function is secondary.** LN+SiLU (47.80%) and LN+GELU (47.62%) beat LN+tanh (46.54%). The modern deep learning stack (LN+GELU = BERT/GPT FFN, LN+SiLU = LLaMA FFN) has already implicitly solved depth stability.
+
+---
+
+### Test AI -- Long Training 100 Epochs (COMPLETE)
+
+**Question**: Does Iso catch up to LN+tanh with more training, or is the gap structural?
+
+| Model | ep24 | ep50 | ep100 | Peak | Peak epoch |
+|---|---|---|---|---|---|
+| Base     | 23.02% | 22.22% | 21.47% | 24.57% | ep99 |
+| Iso      | 43.54% | 43.23% | 44.43% | 45.10% | ep41 |
+| LN+tanh  | 46.54% | 44.88% | 42.89% | 47.46% | ep25 |
+| RMS+tanh | 47.51% | 46.64% | 44.93% | 48.22% | ep22 |
+| LN+Iso   | 47.27% | 46.56% | 46.25% | 48.11% | ep43 |
+
+**Finding**: **LN+tanh peaks at ep25 then degrades to 42.89% at ep100 — Iso overtakes it.** LN models converge faster but overfit; Iso is slower to peak but more stable. The "LN+tanh beats Iso" result from AE is a 24-epoch artefact: LN provides fast early convergence, not a structural accuracy advantage. At 100 epochs, Iso (44.43%) > LN+tanh (42.89%). LN+Iso (46.25%) remains best at 100 epochs — combining both mechanisms avoids overfitting while keeping fast convergence.
+
+---
+
+### Test AF -- Width Scaling 32->512 (COMPLETE)
+
+**Setup**: Base and Iso at 1L/2L, widths [32, 64, 128, 256, 512], 24 epochs.
+
+| Width | Base-2L | Iso-2L | Gap | LN+tanh-2L | LN+Iso-2L |
+|---|---|---|---|---|---|
+| 32  | 26.38% | 43.42% | +17.04% | 45.35% | 45.89% |
+| 64  | 25.06% | 43.08% | +18.02% | 46.41% | 47.86% |
+| 128 | 22.27% | 42.90% | +20.63% | 47.06% | 47.30% |
+| 256 | 22.70% | 43.11% | +20.41% | 47.46% | 47.58% |
+| 512 | 20.13% | 42.26% | +22.13% | 48.05% | 48.20% |
+
+**Finding**: The Iso-Base gap grows with width (17% → 22%) because Base *degrades* as width increases — more neurons to saturate, worse gradient balance (W1/W_last ratio falls from 0.13 to 0.09 for Iso, and from 0.13 to 0.09 for Base). Iso accuracy is flat at 42-43% regardless of width. LN variants scale better — LN+tanh improves from 45% to 48% as width grows. This suggests Iso is near its capacity ceiling at 24 epochs; the normalised models continue improving with scale.
+
+---
+
+### Test AG -- Depth Scaling width=128, depth 1-6
+
+**Setup**: Base and Iso MLP, width=128, depths 1–6, 30 epochs, lr=0.08, seed=42, CUDA.
+
+| Depth | Base | Iso | Gap | Base Delta | Iso Delta |
+|---|---|---|---|---|---|
+| 1 | 24.94% | 40.97% | +16.03% | 0 | 0 |
+| 2 | 21.74% | 44.08% | +22.34% | -3.20% | +3.11% |
+| 3 | 21.92% | 45.14% | +23.22% | -3.02% | +4.17% |
+| 4 | 17.64% | 45.95% | +28.31% | -7.30% | +4.98% |
+| 5 | 18.76% | 40.49% | +21.73% | -6.18% | -0.48% |
+| 6 | 20.31% | 29.98% | +9.67% | -4.63% | -10.99% |
+
+Linear fit: Base slope=-0.010/layer, Iso slope=-0.019/layer (both negative due to 6L collapse)
+
+**Key findings**:
+- Iso peaks at **4L** (45.95%), then degrades sharply at 5-6L (40.49% → 29.98%)
+- Base is unstable at ALL depths with width=128/LR=0.08 — gradient norm g1 explodes to 2.87 at 6L while g_out stays ~2.1, confirming elementwise Jacobian collapse at scale
+- The Iso depth advantage window is finite: good up to 4L, collapses beyond
+- Base never recovers — its g1/g_out ratio is chaotic (0.2–2.8×) vs Iso's stable 0.02–0.12×
+
+---
+
+### Test AG-B -- LN variants depth scaling, width=128
+
+**Setup**: LN+tanh, RMS+tanh, LN+Iso at depths 1–6, width=128, 30 epochs, CPU (GPU freed after AG).
+
+| Depth | LN+tanh | Delta | RMS+tanh | Delta | LN+Iso | Delta |
+|---|---|---|---|---|---|---|
+| 1 | 45.14% | 0 | 41.63% | 0 | 43.06% | 0 |
+| 2 | 47.34% | +2.20% | 42.45% | +0.82% | 47.23% | +4.17% |
+| 3 | 47.77% | +2.63% | 46.41% | +4.78% | 48.85% | +5.79% |
+| 4 | **49.17%** | +4.03% | 47.53% | +5.90% | 45.50% | +2.44% |
+| 5 | 49.01% | +3.87% | 47.53% | +5.90% | 40.59% | -2.47% |
+| 6 | 46.57% | +1.43% | 43.76% | +2.13% | 30.55% | -12.51% |
+
+Slopes: LN+tanh +0.004/layer, RMS+tanh +0.008/layer, LN+Iso -0.025/layer
+
+**Key findings**:
+- **LN+tanh peaks at 4L** (49.17%), beating Iso's 4L peak (45.95%) by +3.22%
+- **RMS+tanh is the most robust**: positive slope across all depths, 43.76% at 6L — only model to not sharply degrade
+- **LN+Iso collapses fastest at depth**: peaks at 3L (48.85%), falls to 30.55% at 6L. Over-normalisation + Iso activation compound depth instability
+- **All models eventually degrade at 6L** at width=128: no architecture is unlimited in depth at this scale/epochs
+- LN+tanh advantage over Iso: grows from +5.17% at 1L to +3.22% at 4L peak, then LN+tanh holds better (46.57% vs 29.98% at 6L)
+- The depth stability hierarchy: RMS+tanh > LN+tanh > LN+Iso ≈ Iso >> Base

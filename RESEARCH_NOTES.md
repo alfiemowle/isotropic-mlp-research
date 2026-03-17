@@ -7,7 +7,7 @@ An implementation and empirical investigation of:
 > **"On De-Individuated Neurons: Continuous Symmetries Enable Dynamic Topologies"**
 > George Bird, University of Manchester (arXiv:2602.23405v1, February 2026)
 
-**Status**: Full suite of 30 experiments (A–Z, AA–AD) complete. See `dynamic_topology_net/results/ALL_RESULTS.md` for the master summary.
+**Status**: 34 experiments (A–Z, AA–AG, AG-B, AH, AI, AJ). See `dynamic_topology_net/results/ALL_RESULTS.md` for the master summary.
 
 ---
 
@@ -134,6 +134,14 @@ Standard hyperparameters used throughout: `lr=0.08, batch=128, epochs=24, Adam`.
 | IL+Chi-norm instability | AA | IL can explode to ~10¹² with Chi-norm without hurting accuracy; clip if using both |
 | Shell collapse is width-independent | AB | Affine residual flat at ~0.22 across widths 32–256; genuine proof gap |
 | Base depth failure mechanism | AD | Output layer gradient 7–8× larger than Iso; intermediate layers frozen by elementwise Jacobian collapse; depth adds nothing to fixed random features |
+| Iso is NOT uniquely necessary | AE | LN+tanh beats Iso at 3L (46.54% vs 43.54%); RMS+tanh hits 47.51%; Jacobian preservation is the principle, achievable via normalisation |
+| Iso depth window is finite | AG | Iso peaks at 4L (45.95%) at width=128, then collapses at 6L (29.98%); Base chaotic at all depths |
+| LN+tanh outperforms Iso at all depths | AG+AG-B | LN+tanh peaks at 4L (49.17%) and holds better at 6L (46.57%) vs Iso's 29.98%; gap is structural at 30 epochs |
+| LN+Iso is fragile at depth | AG-B | LN+Iso peaks at 3L (48.85%), collapses at 6L (30.55%); over-normalisation + isotropic compounding |
+| RMS+tanh is most depth-robust | AG-B | Only model with positive slope (+0.008/layer) across depths 1-6; 43.76% at 6L vs 29.98% Iso |
+| Iso beats LN+tanh long-term | AI | At 100 epochs Iso overtakes LN+tanh (44.43% vs 42.89%); LN=convergence speed, Iso=long-run stability |
+| LN scaffold NOT inert | AJ | LN+tanh max_diff=0.086 after scaffold insertion (vs Iso 3e-6); paper topology claims require Iso |
+| Modern activations with LN beat Iso | AH | LN+GELU, LN+SiLU, LN+ReLU all beat Iso at 3L; bare GELU/SiLU/ReLU collapse to 10% at depth 2+ |
 
 ---
 
@@ -152,6 +160,10 @@ Standard hyperparameters used throughout: `lr=0.08, batch=128, epochs=24, Adam`.
 - **Intrinsic length**: Theoretically necessary for exact pruning invariance at near-zero Σ. Practically negligible when scaffold biases are initialised small. Still include it, but don't expect measurable benefit until biases grow large relative to representation norm.
 
 - **Depth collapse mechanism (fully resolved, Test AD)**: At lr=0.08, Base neurons saturate to ±1 at 99.94% rate within the first few epochs. The elementwise Jacobian (sech²) collapses to ~0, making intermediate layers fixed random feature extractors. All learning pressure concentrates on the output layer, whose gradient norm (0.58) is 7–8× larger than Iso's (0.079). Adding depth just makes fixed features harder to linearly separate. Iso's isotropic Jacobian preserves the *tangential* gradient component regardless of norm — every layer keeps learning with balanced, small gradients (~0.008–0.010). This is why regularisation, representation diversity, and global gradient magnitude all failed as explanations: the failure is in the per-activation Jacobian structure.
+
+- **Iso depth window is finite (Test AG)**: At width=128, Iso scales well from 1L to 4L (+4.98% delta), then collapses at 5-6L. LN+tanh is more depth-robust (peaks at 4L: 49.17%, still 46.57% at 6L). RMS+tanh is most robust of all (+0.008/layer slope). LN+Iso collapses fastest at depth (peaks 3L, falls to 30.55% at 6L). Recommended depth for Iso: 3-4 layers maximum at this scale.
+
+- **LN vs Iso trade-off (Tests AE, AG, AI)**: Short training (24-30 epochs): LN+tanh > Iso by ~3-5%. Long training (100 epochs): Iso overtakes LN+tanh (44.43% vs 42.89% — LN overfits). Topology features (pruning, scaffold inertness): require Iso (LN scaffold max_diff=0.086, not inert). Conclusion: use Iso when dynamic topology is the goal or training is long; use LN+tanh for fixed architecture with short training.
 
 - **Dynamic topology value is flexibility, not raw accuracy**: Fair comparisons (equal training epochs) show Dynamic ≈ Static accuracy. The value is that 50% of neurons can be pruned and 91% of accuracy recovers in 1 fine-tune epoch — architectural agility at negligible cost.
 

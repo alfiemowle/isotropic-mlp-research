@@ -1,0 +1,105 @@
+C:\Users\Alfie\AppData\Local\Programs\Python\Python311\Lib\site-packages\torchvision\datasets\cifar.py:83: VisibleDeprecationWarning: dtype(): align should be passed as Python or NumPy boolean but got `align=0`. Did you mean to pass a tuple to create a subarray type? (Deprecated NumPy 2.4)
+  entry = pickle.load(f, encoding="latin1")
+Device: cuda, Width=128
+Depths: [1, 2, 3, 4, 5, 6]
+Loading CIFAR-10...
+
+[1/12] Base-1L (width=128)
+  [Base-1L] Ep  1  acc=0.2542  g1=0.19435  g_out=1.71811
+  [Base-1L] Ep 10  acc=0.2724  g1=0.08124  g_out=1.51764
+  [Base-1L] Ep 20  acc=0.2528  g1=0.06598  g_out=1.50521
+  [Base-1L] Ep 30  acc=0.2494  g1=0.05575  g_out=1.48047
+  Final: 0.2494
+
+[2/12] Iso-1L (width=128)
+  [Iso-1L] Ep  1  acc=0.3736  g1=0.00921  g_out=0.09100
+  [Iso-1L] Ep 10  acc=0.3889  g1=0.00535  g_out=0.07879
+  [Iso-1L] Ep 20  acc=0.4006  g1=0.00567  g_out=0.07743
+  [Iso-1L] Ep 30  acc=0.4097  g1=0.00650  g_out=0.07597
+  Final: 0.4097
+
+[3/12] Base-2L (width=128)
+  [Base-2L] Ep  1  acc=0.2279  g1=0.19477  g_out=1.86968
+  [Base-2L] Ep 10  acc=0.2017  g1=0.17734  g_out=1.68053
+  [Base-2L] Ep 20  acc=0.2373  g1=0.14955  g_out=1.78683
+  [Base-2L] Ep 30  acc=0.2174  g1=0.16016  g_out=1.67211
+  Final: 0.2174
+
+[4/12] Iso-2L (width=128)
+  [Iso-2L] Ep  1  acc=0.3650  g1=0.00642  g_out=0.09135
+  [Iso-2L] Ep 10  acc=0.4294  g1=0.00466  g_out=0.08237
+  [Iso-2L] Ep 20  acc=0.4374  g1=0.00491  g_out=0.07873
+  [Iso-2L] Ep 30  acc=0.4408  g1=0.00534  g_out=0.07622
+  Final: 0.4408
+
+[5/12] Base-3L (width=128)
+  [Base-3L] Ep  1  acc=0.2261  g1=0.25482  g_out=2.02845
+  [Base-3L] Ep 10  acc=0.1939  g1=0.32784  g_out=1.91912
+  [Base-3L] Ep 20  acc=0.1834  g1=0.40557  g_out=1.78850
+  [Base-3L] Ep 30  acc=0.2192  g1=0.37711  g_out=1.68881
+  Final: 0.2192
+
+[6/12] Iso-3L (width=128)
+  [Iso-3L] Ep  1  acc=0.3491  g1=0.00483  g_out=0.09235
+  [Iso-3L] Ep 10  acc=0.4318  g1=0.00401  g_out=0.08245
+  [Iso-3L] Ep 20  acc=0.4460  g1=0.00453  g_out=0.07937
+  [Iso-3L] Ep 30  acc=0.4514  g1=0.00520  g_out=0.07763
+  Final: 0.4514
+
+[7/12] Base-4L (width=128)
+  [Base-4L] Ep  1  acc=0.1621  g1=0.46104  g_out=1.98173
+  [Base-4L] Ep 10  acc=0.1927  g1=0.88263  g_out=1.89909
+  [Base-4L] Ep 20  acc=0.1641  g1=0.74159  g_out=1.89567
+  [Base-4L] Ep 30  acc=0.1764  g1=0.51257  g_out=1.97725
+  Final: 0.1764
+
+[8/12] Iso-4L (width=128)
+  [Iso-4L] Ep  1  acc=0.3210  g1=0.00405  g_out=0.09291
+  [Iso-4L] Ep 10  acc=0.3796  g1=0.00322  g_out=0.08460
+  [Iso-4L] Ep 20  acc=0.4152  g1=0.00381  g_out=0.08367
+  [Iso-4L] Ep 30  acc=0.4595  g1=0.00462  g_out=0.07621
+  Final: 0.4595
+
+[9/12] Base-5L (width=128)
+  [Base-5L] Ep  1  acc=0.1427  g1=0.66356  g_out=2.19528
+  [Base-5L] Ep 10  acc=0.1937  g1=0.71457  g_out=2.24231
+  [Base-5L] Ep 20  acc=0.1408  g1=1.17283  g_out=2.01075
+  [Base-5L] Ep 30  acc=0.1876  g1=0.60723  g_out=1.95366
+  Final: 0.1876
+
+[10/12] Iso-5L (width=128)
+  [Iso-5L] Ep  1  acc=0.2049  g1=0.00339  g_out=0.09672
+  [Iso-5L] Ep 10  acc=0.2556  g1=0.00158  g_out=0.08688
+  [Iso-5L] Ep 20  acc=0.3468  g1=0.00166  g_out=0.08497
+  [Iso-5L] Ep 30  acc=0.4049  g1=0.00210  g_out=0.08336
+  Final: 0.4049
+
+[11/12] Base-6L (width=128)
+  [Base-6L] Ep  1  acc=0.1730  g1=0.77622  g_out=2.34903
+  [Base-6L] Ep 10  acc=0.1705  g1=0.99270  g_out=2.20198
+  [Base-6L] Ep 20  acc=0.1257  g1=2.80015  g_out=2.17045
+  [Base-6L] Ep 30  acc=0.2031  g1=2.87328  g_out=2.11356
+  Final: 0.2031
+
+[12/12] Iso-6L (width=128)
+  [Iso-6L] Ep  1  acc=0.2243  g1=0.00293  g_out=0.09942
+  [Iso-6L] Ep 10  acc=0.2544  g1=0.00176  g_out=0.08612
+  [Iso-6L] Ep 20  acc=0.2881  g1=0.00183  g_out=0.08422
+  [Iso-6L] Ep 30  acc=0.2998  g1=0.00169  g_out=0.08537
+  Final: 0.2998
+
+============================================================
+SUMMARY (width=128)
+============================================================
+ Depth      Base       Iso       Gap  Base Delta  Iso Delta
+     1  0.2494  0.4097  +0.1603  +0.0000  +0.0000
+     2  0.2174  0.4408  +0.2234  -0.0320  +0.0311
+     3  0.2192  0.4514  +0.2322  -0.0302  +0.0417
+     4  0.1764  0.4595  +0.2831  -0.0730  +0.0498
+     5  0.1876  0.4049  +0.2173  -0.0618  -0.0048
+     6  0.2031  0.2998  +0.0967  -0.0463  -0.1099
+
+Linear fit: Base slope=-0.0104/layer  Iso slope=-0.0185/layer
+
+Plot saved to results/test_AG/depth_scaling.png
+Results saved to results/test_AG/results.md
