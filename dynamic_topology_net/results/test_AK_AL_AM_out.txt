@@ -1,0 +1,334 @@
+C:\Users\Alfie\AppData\Roaming\Python\Python314\site-packages\torchvision\datasets\cifar.py:83: VisibleDeprecationWarning: dtype(): align should be passed as Python or NumPy boolean but got `align=0`. Did you mean to pass a tuple to create a subarray type? (Deprecated NumPy 2.4)
+  entry = pickle.load(f, encoding="latin1")
+Device: cpu
+Loading CIFAR-10...
+
+[1/20] IsoTanh-1L
+  [IsoTanh-1L] Ep  1  acc=0.3623
+  [IsoTanh-1L] Ep 10  acc=0.3903
+  [IsoTanh-1L] Ep 20  acc=0.4099
+  [IsoTanh-1L] Ep 30  acc=0.4139
+  Final: 0.4139  Peak: 0.4139
+
+[2/20] IsoTanh-2L
+  [IsoTanh-2L] Ep  1  acc=0.3535
+  [IsoTanh-2L] Ep 10  acc=0.4228
+  [IsoTanh-2L] Ep 20  acc=0.4428
+  [IsoTanh-2L] Ep 30  acc=0.4396
+  Final: 0.4396  Peak: 0.4478
+
+[3/20] IsoTanh-3L
+  [IsoTanh-3L] Ep  1  acc=0.3275
+  [IsoTanh-3L] Ep 10  acc=0.4226
+  [IsoTanh-3L] Ep 20  acc=0.4420
+  [IsoTanh-3L] Ep 30  acc=0.4469
+  Final: 0.4469  Peak: 0.4469
+
+[4/20] IsoTanh-4L
+  [IsoTanh-4L] Ep  1  acc=0.3036
+  [IsoTanh-4L] Ep 10  acc=0.3789
+  [IsoTanh-4L] Ep 20  acc=0.4199
+  [IsoTanh-4L] Ep 30  acc=0.4513
+  Final: 0.4513  Peak: 0.4513
+
+[5/20] IsoTanh-5L
+  [IsoTanh-5L] Ep  1  acc=0.2563
+  [IsoTanh-5L] Ep 10  acc=0.3233
+  [IsoTanh-5L] Ep 20  acc=0.3991
+  [IsoTanh-5L] Ep 30  acc=0.4246
+  Final: 0.4246  Peak: 0.4246
+
+[6/20] IsoGELU-1L
+  [IsoGELU-1L] Ep  1  acc=0.1812
+  [IsoGELU-1L] Ep 10  acc=0.1863
+  [IsoGELU-1L] Ep 20  acc=0.1924
+  [IsoGELU-1L] Ep 30  acc=0.2366
+  Final: 0.2366  Peak: 0.2581
+
+[7/20] IsoGELU-2L
+  [IsoGELU-2L] Ep  1  acc=0.3286
+  [IsoGELU-2L] Ep 10  acc=0.3347
+  [IsoGELU-2L] Ep 20  acc=0.3370
+  [IsoGELU-2L] Ep 30  acc=0.2812
+  Final: 0.2812  Peak: 0.3596
+
+[8/20] IsoGELU-3L
+  [IsoGELU-3L] Ep  1  acc=0.3522
+  [IsoGELU-3L] Ep 10  acc=0.3448
+  [IsoGELU-3L] Ep 20  acc=0.2340
+  [IsoGELU-3L] Ep 30  acc=0.3334
+  Final: 0.3334  Peak: 0.3819
+
+[9/20] IsoGELU-4L
+  [IsoGELU-4L] Ep  1  acc=0.3521
+  [IsoGELU-4L] Ep 10  acc=0.3443
+  [IsoGELU-4L] Ep 20  acc=0.2186
+  [IsoGELU-4L] Ep 30  acc=0.2372
+  Final: 0.2372  Peak: 0.3820
+
+[10/20] IsoGELU-5L
+  [IsoGELU-5L] Ep  1  acc=0.3651
+  [IsoGELU-5L] Ep 10  acc=0.3682
+  [IsoGELU-5L] Ep 20  acc=0.2191
+  [IsoGELU-5L] Ep 30  acc=0.2540
+  Final: 0.2540  Peak: 0.3852
+
+[11/20] IsoSiLU-1L
+  [IsoSiLU-1L] Ep  1  acc=0.1919
+  [IsoSiLU-1L] Ep 10  acc=0.2056
+  [IsoSiLU-1L] Ep 20  acc=0.2234
+  [IsoSiLU-1L] Ep 30  acc=0.2249
+  Final: 0.2249  Peak: 0.2637
+
+[12/20] IsoSiLU-2L
+  [IsoSiLU-2L] Ep  1  acc=0.3196
+  [IsoSiLU-2L] Ep 10  acc=0.3355
+  [IsoSiLU-2L] Ep 20  acc=0.3196
+  [IsoSiLU-2L] Ep 30  acc=0.2790
+  Final: 0.2790  Peak: 0.3414
+
+[13/20] IsoSiLU-3L
+  [IsoSiLU-3L] Ep  1  acc=0.3404
+  [IsoSiLU-3L] Ep 10  acc=0.2833
+  [IsoSiLU-3L] Ep 20  acc=0.2781
+  [IsoSiLU-3L] Ep 30  acc=0.2510
+  Final: 0.2510  Peak: 0.3727
+
+[14/20] IsoSiLU-4L
+  [IsoSiLU-4L] Ep  1  acc=0.3414
+  [IsoSiLU-4L] Ep 10  acc=0.3482
+  [IsoSiLU-4L] Ep 20  acc=0.2198
+  [IsoSiLU-4L] Ep 30  acc=0.2690
+  Final: 0.2690  Peak: 0.3768
+
+[15/20] IsoSiLU-5L
+  [IsoSiLU-5L] Ep  1  acc=0.3685
+  [IsoSiLU-5L] Ep 10  acc=0.3626
+  [IsoSiLU-5L] Ep 20  acc=0.2129
+  [IsoSiLU-5L] Ep 30  acc=0.2256
+  Final: 0.2256  Peak: 0.3802
+
+[16/20] IsoSoftplus-1L
+  [IsoSoftplus-1L] Ep  1  acc=0.2259
+  [IsoSoftplus-1L] Ep 10  acc=0.1810
+  [IsoSoftplus-1L] Ep 20  acc=0.2610
+  [IsoSoftplus-1L] Ep 30  acc=0.2665
+  Final: 0.2665  Peak: 0.2665
+
+[17/20] IsoSoftplus-2L
+  [IsoSoftplus-2L] Ep  1  acc=0.3249
+  [IsoSoftplus-2L] Ep 10  acc=0.3343
+  [IsoSoftplus-2L] Ep 20  acc=0.3548
+  [IsoSoftplus-2L] Ep 30  acc=0.3395
+  Final: 0.3395  Peak: 0.3548
+
+[18/20] IsoSoftplus-3L
+  [IsoSoftplus-3L] Ep  1  acc=0.3630
+  [IsoSoftplus-3L] Ep 10  acc=0.3036
+  [IsoSoftplus-3L] Ep 20  acc=0.2847
+  [IsoSoftplus-3L] Ep 30  acc=0.2895
+  Final: 0.2895  Peak: 0.3842
+
+[19/20] IsoSoftplus-4L
+  [IsoSoftplus-4L] Ep  1  acc=0.3637
+  [IsoSoftplus-4L] Ep 10  acc=0.3247
+  [IsoSoftplus-4L] Ep 20  acc=0.2521
+  [IsoSoftplus-4L] Ep 30  acc=0.2763
+  Final: 0.2763  Peak: 0.3762
+
+[20/20] IsoSoftplus-5L
+  [IsoSoftplus-5L] Ep  1  acc=0.3724
+  [IsoSoftplus-5L] Ep 10  acc=0.3567
+  [IsoSoftplus-5L] Ep 20  acc=0.2312
+  [IsoSoftplus-5L] Ep 30  acc=0.2436
+  Final: 0.2436  Peak: 0.3837
+
+=================================================================
+SUMMARY: Final accuracy by depth (width=32, 30 epochs)
+         Model  1L  2L  3L  4L  5L  Best depth
+       IsoTanh  0.414  0.440  0.447  0.451  0.425  4L
+       IsoGELU  0.237  0.281  0.333  0.237  0.254  3L
+       IsoSiLU  0.225  0.279  0.251  0.269  0.226  2L
+   IsoSoftplus  0.267  0.340  0.289  0.276  0.244  2L
+
+Linear fit slope (acc/layer):
+  IsoTanh: +0.0033/layer
+  IsoGELU: -0.0009/layer
+  IsoSiLU: -0.0009/layer
+  IsoSoftplus: -0.0109/layer
+
+Plot saved.
+Results saved.
+C:\Users\Alfie\AppData\Roaming\Python\Python314\site-packages\torchvision\datasets\cifar.py:83: VisibleDeprecationWarning: dtype(): align should be passed as Python or NumPy boolean but got `align=0`. Did you mean to pass a tuple to create a subarray type? (Deprecated NumPy 2.4)
+  entry = pickle.load(f, encoding="latin1")
+Device: cpu
+Loading CIFAR-10...
+
+[1/11] Pure-Iso-3L  layers=['Iso', 'Iso', 'Iso']
+  [Pure-Iso-3L] Ep  1  acc=0.3275
+  [Pure-Iso-3L] Ep 10  acc=0.4226
+  [Pure-Iso-3L] Ep 20  acc=0.4420
+  [Pure-Iso-3L] Ep 30  acc=0.4469
+  Final: 0.4469  Peak: 0.4469
+
+[2/11] Pure-LN+GELU-3L  layers=['LN+GELU', 'LN+GELU', 'LN+GELU']
+  [Pure-LN+GELU-3L] Ep  1  acc=0.3723
+  [Pure-LN+GELU-3L] Ep 10  acc=0.4704
+  [Pure-LN+GELU-3L] Ep 20  acc=0.4893
+  [Pure-LN+GELU-3L] Ep 30  acc=0.4794
+  Final: 0.4794  Peak: 0.4893
+
+[3/11] Iso-first-3L  layers=['Iso', 'LN+GELU', 'LN+GELU']
+  [Iso-first-3L] Ep  1  acc=0.3667
+  [Iso-first-3L] Ep 10  acc=0.4642
+  [Iso-first-3L] Ep 20  acc=0.4796
+  [Iso-first-3L] Ep 30  acc=0.4846
+  Final: 0.4846  Peak: 0.4899
+
+[4/11] Iso-last-3L  layers=['LN+GELU', 'LN+GELU', 'Iso']
+  [Iso-last-3L] Ep  1  acc=0.3928
+  [Iso-last-3L] Ep 10  acc=0.4872
+  [Iso-last-3L] Ep 20  acc=0.4954
+  [Iso-last-3L] Ep 30  acc=0.4891
+  Final: 0.4891  Peak: 0.4954
+
+[5/11] Iso-sandwich-3L  layers=['Iso', 'LN+GELU', 'Iso']
+  [Iso-sandwich-3L] Ep  1  acc=0.3833
+  [Iso-sandwich-3L] Ep 10  acc=0.4781
+  [Iso-sandwich-3L] Ep 20  acc=0.4839
+  [Iso-sandwich-3L] Ep 30  acc=0.4827
+  Final: 0.4827  Peak: 0.4864
+
+[6/11] Pure-Iso-4L  layers=['Iso', 'Iso', 'Iso', 'Iso']
+  [Pure-Iso-4L] Ep  1  acc=0.3036
+  [Pure-Iso-4L] Ep 10  acc=0.3789
+  [Pure-Iso-4L] Ep 20  acc=0.4199
+  [Pure-Iso-4L] Ep 30  acc=0.4513
+  Final: 0.4513  Peak: 0.4513
+
+[7/11] Pure-LN+GELU-4L  layers=['LN+GELU', 'LN+GELU', 'LN+GELU', 'LN+GELU']
+  [Pure-LN+GELU-4L] Ep  1  acc=0.3586
+  [Pure-LN+GELU-4L] Ep 10  acc=0.4809
+  [Pure-LN+GELU-4L] Ep 20  acc=0.4671
+  [Pure-LN+GELU-4L] Ep 30  acc=0.4952
+  Final: 0.4952  Peak: 0.4970
+
+[8/11] Iso-first-4L  layers=['Iso', 'LN+GELU', 'LN+GELU', 'LN+GELU']
+  [Iso-first-4L] Ep  1  acc=0.3531
+  [Iso-first-4L] Ep 10  acc=0.4645
+  [Iso-first-4L] Ep 20  acc=0.4817
+  [Iso-first-4L] Ep 30  acc=0.4978
+  Final: 0.4978  Peak: 0.4978
+
+[9/11] Iso-last-4L  layers=['LN+GELU', 'LN+GELU', 'LN+GELU', 'Iso']
+  [Iso-last-4L] Ep  1  acc=0.3880
+  [Iso-last-4L] Ep 10  acc=0.4835
+  [Iso-last-4L] Ep 20  acc=0.4786
+  [Iso-last-4L] Ep 30  acc=0.4874
+  Final: 0.4874  Peak: 0.4915
+
+[10/11] Iso-sandwich-4L  layers=['Iso', 'LN+GELU', 'LN+GELU', 'Iso']
+  [Iso-sandwich-4L] Ep  1  acc=0.3668
+  [Iso-sandwich-4L] Ep 10  acc=0.4826
+  [Iso-sandwich-4L] Ep 20  acc=0.4834
+  [Iso-sandwich-4L] Ep 30  acc=0.4851
+  Final: 0.4851  Peak: 0.4961
+
+[11/11] Alternating-4L  layers=['Iso', 'LN+GELU', 'Iso', 'LN+GELU']
+  [Alternating-4L] Ep  1  acc=0.3669
+  [Alternating-4L] Ep 10  acc=0.4674
+  [Alternating-4L] Ep 20  acc=0.4738
+  [Alternating-4L] Ep 30  acc=0.4864
+  Final: 0.4864  Peak: 0.4972
+
+======================================================================
+SUMMARY
+Model                       Final     Peak   vs Pure-Iso   vs Pure-LNG
+Pure-Iso-3L               0.4469  0.4469  +0.0000 vs Iso  -0.0325 vs LNG  (3/3 Iso layers)
+Pure-LN+GELU-3L           0.4794  0.4893  +0.0325 vs Iso  +0.0000 vs LNG  (0/3 Iso layers)
+Iso-first-3L              0.4846  0.4899  +0.0377 vs Iso  +0.0052 vs LNG  (1/3 Iso layers)
+Iso-last-3L               0.4891  0.4954  +0.0422 vs Iso  +0.0097 vs LNG  (1/3 Iso layers)
+Iso-sandwich-3L           0.4827  0.4864  +0.0358 vs Iso  +0.0033 vs LNG  (2/3 Iso layers)
+Pure-Iso-4L               0.4513  0.4513  +0.0000 vs Iso  -0.0439 vs LNG  (4/4 Iso layers)
+Pure-LN+GELU-4L           0.4952  0.4970  +0.0439 vs Iso  +0.0000 vs LNG  (0/4 Iso layers)
+Iso-first-4L              0.4978  0.4978  +0.0465 vs Iso  +0.0026 vs LNG  (1/4 Iso layers)
+Iso-last-4L               0.4874  0.4915  +0.0361 vs Iso  -0.0078 vs LNG  (1/4 Iso layers)
+Iso-sandwich-4L           0.4851  0.4961  +0.0338 vs Iso  -0.0101 vs LNG  (2/4 Iso layers)
+Alternating-4L            0.4864  0.4972  +0.0351 vs Iso  -0.0088 vs LNG  (2/4 Iso layers)
+
+Plot saved.
+Results saved.
+C:\Users\Alfie\AppData\Roaming\Python\Python314\site-packages\torchvision\datasets\cifar.py:83: VisibleDeprecationWarning: dtype(): align should be passed as Python or NumPy boolean but got `align=0`. Did you mean to pass a tuple to create a subarray type? (Deprecated NumPy 2.4)
+  entry = pickle.load(f, encoding="latin1")
+Device: cpu
+Loading CIFAR-10...
+
+[1/2] Training Iso-3L (width=32)
+  [Iso] Ep  1  acc=0.3275
+  [Iso] Ep 10  acc=0.4226
+  [Iso] Ep 20  acc=0.4420
+  [Iso] Ep 30  acc=0.4469
+
+[2/2] Training LN+tanh-3L (width=32)
+  [LN+tanh] Ep  1  acc=0.3638
+  [LN+tanh] Ep 10  acc=0.4664
+  [LN+tanh] Ep 20  acc=0.4628
+  [LN+tanh] Ep 30  acc=0.4626
+
+Base accuracies: Iso=0.4469  LN+tanh=0.4626
+
+--- GROWTH: 32 -> 48 neurons ---
+Output diff after growth:  Iso=0.000243  LN+tanh=0.538207
+Accuracy before fine-tune: Iso=0.4469  LN+tanh=0.4556
+  [Iso-grown-ft1] Ep  1  acc=0.4376
+  [LN-grown-ft1] Ep  1  acc=0.4696
+  After 1 fine-tune epochs: Iso=0.4376  LN+tanh=0.4696
+  [Iso-grown-ft2] Ep  1  acc=0.4381
+  [LN-grown-ft2] Ep  1  acc=0.4565
+  After 2 fine-tune epochs: Iso=0.4381  LN+tanh=0.4565
+  [Iso-grown-ft3] Ep  1  acc=0.4328
+  [LN-grown-ft3] Ep  1  acc=0.4559
+  After 3 fine-tune epochs: Iso=0.4328  LN+tanh=0.4559
+  [Iso-grown-ft5] Ep  1  acc=0.4435
+  [Iso-grown-ft5] Ep  2  acc=0.4461
+  [LN-grown-ft5] Ep  1  acc=0.4573
+  [LN-grown-ft5] Ep  2  acc=0.4615
+  After 5 fine-tune epochs: Iso=0.4461  LN+tanh=0.4615
+
+--- PRUNING: 32 -> 24 neurons ---
+Accuracy before fine-tune: Iso=0.1255  LN+tanh=0.2911
+  [Iso-pruned-ft1] Ep  1  acc=0.4260
+  [LN-pruned-ft1] Ep  1  acc=0.4482
+  After 1 fine-tune epochs: Iso=0.4260  LN+tanh=0.4482
+  [Iso-pruned-ft2] Ep  1  acc=0.4445
+  [LN-pruned-ft2] Ep  1  acc=0.4449
+  After 2 fine-tune epochs: Iso=0.4445  LN+tanh=0.4449
+  [Iso-pruned-ft3] Ep  1  acc=0.4381
+  [LN-pruned-ft3] Ep  1  acc=0.4451
+  After 3 fine-tune epochs: Iso=0.4381  LN+tanh=0.4451
+  [Iso-pruned-ft5] Ep  1  acc=0.4357
+  [Iso-pruned-ft5] Ep  2  acc=0.4452
+  [LN-pruned-ft5] Ep  1  acc=0.4588
+  [LN-pruned-ft5] Ep  2  acc=0.4509
+  After 5 fine-tune epochs: Iso=0.4452  LN+tanh=0.4509
+
+=================================================================
+GROWTH SUMMARY
+  Output diff (inertness): Iso=0.000243  LN+tanh=0.538207
+  Iso base: 0.4469  |  LN+tanh base: 0.4626
+  ft=0: Iso=0.4469 (+0.0000)  LN+tanh=0.4556 (-0.0070)
+  ft=1: Iso=0.4376 (-0.0093)  LN+tanh=0.4696 (+0.0070)
+  ft=2: Iso=0.4381 (-0.0088)  LN+tanh=0.4565 (-0.0061)
+  ft=3: Iso=0.4328 (-0.0141)  LN+tanh=0.4559 (-0.0067)
+  ft=5: Iso=0.4461 (-0.0008)  LN+tanh=0.4615 (-0.0011)
+
+PRUNING SUMMARY
+  Iso base: 0.4469  |  LN+tanh base: 0.4626
+  ft=0: Iso=0.1255 (-0.3214)  LN+tanh=0.2911 (-0.1715)
+  ft=1: Iso=0.4260 (-0.0209)  LN+tanh=0.4482 (-0.0144)
+  ft=2: Iso=0.4445 (-0.0024)  LN+tanh=0.4449 (-0.0177)
+  ft=3: Iso=0.4381 (-0.0088)  LN+tanh=0.4451 (-0.0175)
+  ft=5: Iso=0.4452 (-0.0017)  LN+tanh=0.4509 (-0.0117)
+
+Plot saved.
+Results saved.
