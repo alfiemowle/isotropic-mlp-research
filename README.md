@@ -26,6 +26,12 @@ An empirical investigation of **isotropic dynamic networks** based on:
 - Gradient-based pruning criterion (paper's footnote 5) fails badly: r = 0.464
 - Semi-orthogonal scaffold initialisation is impossible when width > num_classes
 
+
+**Proposed Experiments (George)**:
+- So pruning after singular value decomp does result in some loss in accuracy, quantifying that could be very useful.
+- Network merging and behaviours?
+
+
 ---
 
 ## Structure
