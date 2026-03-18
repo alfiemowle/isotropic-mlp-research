@@ -1,3 +1,10 @@
+# Timeline/Approach
+
+- Familiarise with sections one and two, what is the diagonalisation trick, why it works, what steps ensure it.
+    - Orthogonal versus Permutation versus Identity Invaraince/Equivariance Symmetry: e.g. $\mathbf{f}\left(\mathbf{M}\vec{x}\right)=\mathbf{M}\mathbf{f}\left(\vec{x}\right)$
+    - Reparameterisation invariance when applying orthogonal/permutation transforms
+    - Eigendecomposition to Singular Value Decomposition & why SVD guarantees orthogonal matrices.
+
 # Isotropic MLP Research
 
 An empirical investigation of **isotropic dynamic networks** based on:
