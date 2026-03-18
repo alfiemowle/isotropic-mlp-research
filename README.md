@@ -14,7 +14,7 @@
     - Why those exact neuro/de/genesis formulations are needed, what do they mean. 
         - Why is residual bias a problem and how does intrinsic length fix it?
 - Week 3:
-    -Experiment time!!!
+    - Experiment time!!!
 
 
 
