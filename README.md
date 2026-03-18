@@ -1,7 +1,7 @@
 # Timeline/Approach
 
 - Week 1: Familiarise with sections one and two, what is the diagonalisation trick, why it works, what steps ensure it.
-    - Orthogonal versus Permutation versus Identity Invaraince/Equivariance Symmetry: e.g. $\mathbf{f}\left(\mathbf{M}\vec{x}\right)\mathbf{M}\mathbf{f}\left(\vec{x}\right)$. (Why this equality allows you to transfer $\mathbf{M}$ through the activation function.)
+    - Orthogonal versus Permutation versus Identity Invaraince/Equivariance Symmetry: e.g. $\mathbf{f}\left(\mathbf{M}\vec{x}\right)=\mathbf{M}\mathbf{f}\left(\vec{x}\right)$. (Why this equality allows you to transfer $\mathbf{M}$ through the activation function.)
     - Reparameterisation invariance when applying orthogonal/permutation transforms 
         - Weights can absorb this rotation, $\mathbf{W}'=\mathbf{W}\mathbf{R}$ becoming new valid weights.
         - Because youve inserted the identity (changes nothing) and used $\mathbf{R}^T=\mathbf{R}^{-1}$ then $\mathbf{I}=\mathbf{R}^{-1}\mathbf{R}=\mathbf{R}^T\mathbf{R}$, then moving those $\mathbf{R}$ around changes how weights and bias' values look, but those changes cancel out such that no overall function change occurs.
