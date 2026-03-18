@@ -1,9 +1,24 @@
 # Timeline/Approach
 
-- Familiarise with sections one and two, what is the diagonalisation trick, why it works, what steps ensure it.
-    - Orthogonal versus Permutation versus Identity Invaraince/Equivariance Symmetry: e.g. $\mathbf{f}\left(\mathbf{M}\vec{x}\right)=\mathbf{M}\mathbf{f}\left(\vec{x}\right)$
-    - Reparameterisation invariance when applying orthogonal/permutation transforms
+- Week 1: Familiarise with sections one and two, what is the diagonalisation trick, why it works, what steps ensure it.
+    - Orthogonal versus Permutation versus Identity Invaraince/Equivariance Symmetry: e.g. $\mathbf{f}\left(\mathbf{M}\vec{x}\right)\mathbf{M}\mathbf{f}\left(\vec{x}\right)$. (Why this equality allows you to transfer $\mathbf{M}$ through the activation function.)
+    - Reparameterisation invariance when applying orthogonal/permutation transforms 
+        - Weights can absorb this rotation, $\mathbf{W}'=\mathbf{W}\mathbf{R}$ becoming new valid weights.
+        - Because youve inserted the identity (changes nothing) and used $\mathbf{R}^T=\mathbf{R}^{-1}$ then $\mathbf{I}=\mathbf{R}^{-1}\mathbf{R}=\mathbf{R}^T\mathbf{R}$, then moving those $\mathbf{R}$ around changes how weights and bias' values look, but those changes cancel out such that no overall function change occurs.
     - Eigendecomposition to Singular Value Decomposition & why SVD guarantees orthogonal matrices.
+    - Also the sparsity approach, why this isnt just approximate but absolute, upto floating point precision (also noteworthy is TF32 not F32)
+    - Appendix A: conceptually important, what changing permutation to rotation means.
+- Week 2: Then moving on to the structural reparameterisation invariances, e.g. why intrinsic length is permitted and the procedures for neurogenesis/neural pruning
+    - First why only partial diagonalisation is needed
+    - The one-to-one sparsity approach, ordered by singular values (what those singular values mean, strength of dependence)
+    - Why those exact neuro/de/genesis formulations are needed, what do they mean. 
+        - Why is residual bias a problem and how does intrinsic length fix it?
+- Week 3:
+    -Experiment time!!!
+
+
+
+
 
 # Isotropic MLP Research
 
